@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>每日打卡 · 温柔成长记录</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero card">
+        <p class="eyebrow">Daily Check-in</p>
+        <h1>🌷 每日打卡与进度追踪</h1>
+        <p class="sub">记录一点点努力，看到看得见的成长曲线。</p>
+      </header>
+
+      <section class="grid">
+        <article class="card form-card">
+          <h2>今日打卡</h2>
+          <form id="checkin-form">
+            <label>
+              日期
+              <input type="date" id="date" required />
+            </label>
+            <label>
+              今日新增（例如学习时长/字数/公里数）
+              <input type="number" id="growth" min="0" step="1" required placeholder="输入今日增长值" />
+            </label>
+            <label>
+              心情备注
+              <input type="text" id="note" maxlength="30" placeholder="例如：状态不错，继续冲鸭~" />
+            </label>
+            <button type="submit">保存今日记录</button>
+          </form>
+        </article>
+
+        <article class="card stats-card">
+          <h2>成长总览</h2>
+          <div class="stats" id="stats"></div>
+        </article>
+      </section>
+
+      <section class="card">
+        <div class="panel-head">
+          <h2>每日增长趋势</h2>
+          <span class="tag" id="range-label">最近 14 天</span>
+        </div>
+        <svg id="chart" viewBox="0 0 760 260" role="img" aria-label="每日增长趋势图"></svg>
+      </section>
+
+      <section class="card">
+        <div class="panel-head">
+          <h2>阶段性大幅增长</h2>
+          <span class="tag hot" id="best-period">等待更多数据...</span>
+        </div>
+        <p class="tip">系统会自动找出任意连续 7 天内累计增长最多的一段时间。</p>
+      </section>
+
+      <section class="card">
+        <h2>最近记录</h2>
+        <ul id="record-list" class="record-list"></ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
